@@ -1,8 +1,6 @@
-function getInput() {
+function shorten() {
     var URL = document.getElementById('URL').value;
-    var ShortenedURL = document.getElementById('ShortURL').value;
 
-    alert(URL);
-    alert(ShortenedURL);
+    document.getElementById("shorten").innerHTML = "Verkürzter Link: "+URL;
 
 }
