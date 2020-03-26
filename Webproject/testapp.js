@@ -6,6 +6,16 @@ const sqlite3 = require('sqlite3').verbose();
         console.log("Verbingung zur Shortly SQLite Datenbank aufgebaut");
     });
 
+    
+
+
+    db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",['youtube', 'you'], function(err){
+        if(err) {
+            return console.log(err.message);
+        }
+        console.log("Der Datensatz wurde erfolgreich eingefügt");
+    });
+
     let sql = "SELECT URL, ShortenedURL FROM URL";
 
     db.all(sql, [], (err, rows) => {

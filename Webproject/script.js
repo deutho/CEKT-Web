@@ -4,31 +4,27 @@ function shorten() {
     console.log("hallo");
 
     document.getElementById("shorten").innerHTML = "Verkürzter Link: " + shortenURL;
-    storeInDatabase(URL, shortenURL);
+    storeInDatabase.call(URL, shortenURl);
 
 }
 
 
 function storeInDatabase(URL, shortenURL) {
+        
     const sqlite3 = require('sqlite3').verbose();
-    let db = new sqlite3.Database(':memory:', (err) => {
+    let db = new sqlite3.Database('./database.db', (err) => {
         if (err) {
             return console.error(err.message);
         }
-        console.log("Verbingung zur in-memory SQLite Datenbank aufgebaut");
+        console.log("Verbingung zur Shortly SQLite Datenbank aufgebaut");
     });
 
-    let sql = "SELECT URL, ShortenedURL FROM URL";
-
-    db.all(sql, [], (err, rows) => {
-        if (err) {
-            throw err;
+    db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",[URL, shortenURL], function(err){
+        if(err) {
+            return console.log(err.message);
         }
-        rows.forEach((row) => {
-            console.log(row.URL)
-            console.log(row.ShortenedURL);
-        });
-});
+        console.log("Der Datensatz wurde erfolgreich eingefügt");
+    });
 
 db.close((err) => {
     if (err) {
