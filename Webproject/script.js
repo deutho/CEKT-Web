@@ -4,8 +4,9 @@ function shorten() {
     console.log("hallo");
 
     document.getElementById("shorten").innerHTML = "Verkürzter Link: " + shortenURL;
-    storeInDatabase.call(URL, shortenURl);
+    storeInDatabase(URL, shortenURl);
 
+return
 }
 
 
@@ -33,5 +34,6 @@ db.close((err) => {
     console.log("Verbindung zur Datenbank geschlossen");
 });
 
+return
     
 }
