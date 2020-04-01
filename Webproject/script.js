@@ -1,16 +1,17 @@
-function shorten() {
+
+module.exports = function shorten() {
     var URL = document.getElementById('URL').value;
-    var shortenURL = "verkürzter Link"
+    var shortenURL = 'verkürzter Link';
     console.log("hallo");
 
     document.getElementById("shorten").innerHTML = "Verkürzter Link: " + shortenURL;
-    storeInDatabase(URL, shortenURl);
+    storeInDatabase(URL, shortenURL);
 
 return
 }
 
 
-function storeInDatabase(URL, shortenURL) {
+module.exports = function storeInDatabase(URL, shortenURL) {
         
     const sqlite3 = require('sqlite3').verbose();
     let db = new sqlite3.Database('./database.db', (err) => {
