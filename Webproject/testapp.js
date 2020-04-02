@@ -9,7 +9,7 @@ const sqlite3 = require('sqlite3').verbose();
     
 
 
-    db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",['youtube', 'you'], function(err){
+    db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",['yo', 'y'], function(err){
         if(err) {
             return console.log(err.message);
         }

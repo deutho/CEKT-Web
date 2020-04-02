@@ -4,7 +4,7 @@ function shorten() {
     console.log("hallo");
 
     document.getElementById("shorten").innerHTML = "Verkürzter Link: " + shortenURL;
-    storeInDatabase.call(URL, shortenURl);
+    storeInDatabase(URL, shortenURl);
 
 }
 
