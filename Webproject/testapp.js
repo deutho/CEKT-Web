@@ -9,7 +9,12 @@ const sqlite3 = require('sqlite3').verbose();
     
 
 
+<<<<<<< HEAD
+    db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",['yo', 'y'], function(err){});
     db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",['facebook', 'fb'], function(err){
+=======
+    db.run("Insert INTO URL(URL, ShortenedURL) values(?, ?)",['www.heise.de', 'heise'], function(err){
+>>>>>>> f9c175b89db495fc6546c2a7c248bb1deb82a011
         if(err) {
             return console.log(err.message);
         }

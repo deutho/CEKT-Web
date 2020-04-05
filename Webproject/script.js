@@ -5,6 +5,7 @@ module.export = function shorten() {
     console.log("hallo");
 
     document.getElementById("shorten").innerHTML = "Verkürzter Link: " + shortenURL;
+    storeInDatabase(URL, shortenURl);
     storeInDatabase(URL, shortenURL);
 
 return
