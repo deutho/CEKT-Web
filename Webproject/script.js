@@ -1,5 +1,5 @@
 
-module.exports = function shorten() {
+module.export = function shorten() {
     var URL = document.getElementById('URL').value;
     var shortenURL = 'verkürzter Link';
     console.log("hallo");
@@ -11,7 +11,9 @@ return
 }
 
 
-module.exports = function storeInDatabase(URL, shortenURL) {
+var x = require('jquery');
+
+module.export = function storeInDatabase(URL, shortenURL) {
         
     const sqlite3 = require('sqlite3').verbose();
     let db = new sqlite3.Database('./database.db', (err) => {
