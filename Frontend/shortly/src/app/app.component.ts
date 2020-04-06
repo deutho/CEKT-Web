@@ -14,17 +14,26 @@ export class AppComponent {
   constructor(private _ApiService: ApiService) {
   }
 
-  listURL:URL[];
+  url: Array <any> = [];
 
   ngOnInit() {
-    this._ApiService.getURLs()
+    this._ApiService.getAll()
     .subscribe
     (
-      data =>
+      values =>
       {
-        this.listURL = data;
+        this.url = values.data;
       }
+      
+    );
 
+    this._ApiService.getByShortURL()
+    .subscribe
+    (
+      values =>
+      {
+        this.url = values.data
+      }
     );
   }
 

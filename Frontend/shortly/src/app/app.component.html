@@ -1,16 +1,32 @@
 
   <h2>Get Request all URLs</h2>
 
-  <table>
-    <tr>
-      <th>shortURL</th>
-      <th>longURL</th>
+<table>
+  <tr>
+      <th>ShortURL</th>
+      <th>LongURL</th>
+      </tr>
+
+      <tr *ngFor = "let u of url">
+        <td>{{u.shortURL}}</td>
+        <td>{{u.longURL}}</td>
     </tr>
 
-    <tr *ngFor="let url of listURL">
-      <td>{{url.shortURL}}</td>
-      <td>{{url.longURL}}</td>
-</tr>
+    <label for ="sURL">Short URL:</label>
+    <input type = "text" id = "sURL">
+  <tr>
+      <th>ShortURL</th>
+      <th>LongURL</th>
+      </tr>
+
+      <tr *ngFor = "let u of url">
+        <td>{{u.shortURL}}</td>
+        <td>{{u.longURL}}</td>
+      
+
+
+    </tr>
+
 </table>
 
 
