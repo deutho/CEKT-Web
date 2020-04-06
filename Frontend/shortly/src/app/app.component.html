@@ -1,32 +1,51 @@
+<h1>Shortly - Link Shortener</h1>
 
-  <h2>Get Request all URLs</h2>
+
+
+<h2>Get Requests</h2>
 
 <table>
   <tr>
-      <th>ShortURL</th>
-      <th>LongURL</th>
-      </tr>
+    <button (click)="getAll()">Alle URL Paare anzeigen</button><br>
+    <label>Return Value: </label>
+  <tr *ngFor="let u of Allurl">
+    <td>{{u.shortURL}}</td>
+    <td>{{u.longURL}}</td>
+  </tr>
 
-      <tr *ngFor = "let u of url">
-        <td>{{u.shortURL}}</td>
-        <td>{{u.longURL}}</td>
-    </tr>
-
-    <label for ="sURL">Short URL:</label>
-    <input type = "text" id = "sURL">
   <tr>
-      <th>ShortURL</th>
-      <th>LongURL</th>
-      </tr>
-
-      <tr *ngFor = "let u of url">
-        <td>{{u.shortURL}}</td>
-        <td>{{u.longURL}}</td>
-      
-
-
-    </tr>
+    <br><label for="sURL">ShortURL eingeben: </label>
+    <input type="text" id="sURL" name=shortURL><br>
+    <button (click)="getByID()">URL Paar durch ShortURL suchen</button><br>
+    <label>Return Value: </label>
+  <tr>
+    <td>{{URLByID.shortURL}}</td>
+    <td>{{URLByID.longURL}}</td>
+  </tr>
 
 </table>
 
 
+<h2>Post Request</h2>
+
+<table>
+  <tr>
+    <label for="PostShortURL">ShortURL eingeben: </label>
+    <input type="text" id="PostShortURL" name=shortURL><br>
+    <label for="PostLongURL">LongURL eingeben: </label>
+    <input type="text" id="PostLongURL" name=shortURL><br>
+    <button (click)="PostURL()">URL Paar zur Datenbank hinzufügen</button><br>
+    <label>Return Value: </label>
+  <tr>
+    <td>{{URLPost.shortURL}}</td>
+    <td>{{URLPost.longURL}}</td>
+  </tr>
+</table>
+
+<h2>Delete Request</h2>
+
+<table>
+  <label for="sURL">ShortURL eingeben: </label>
+  <input type="text" id="ShortURLDelete" name=shortURL><br>
+  <button (click)="DeleteURL()">ShortURL aus der Datenbank löschen</button><br>
+</table>
