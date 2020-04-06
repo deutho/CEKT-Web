@@ -1,7 +1,7 @@
 {
-  "name": "rest-shop",
+  "name": "rest-provider",
   "version": "1.0.0",
-  "description": "A Node.js RESTful API Tutorial Project (Build a simple shop API)",
+  "description": "Providing an API to interact with Database",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,13 +12,15 @@
     "restful",
     "api"
   ],
-  "author": "Maximilian Schwarzmüller",
+  "author": "Bolda Stefan, Deutsch Thomas, Hinterhoelzl Stefan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "iconv-lite": "^0.5.1",
-    "morgan": "^1.10.0"
+    "md5": "^2.2.1",
+    "morgan": "^1.10.0",
+    "sqlite3": "^4.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
