@@ -24,44 +24,76 @@ router.get('/', (req, res, next) => {
         }
         else {
             res.json({
-                "message":"success",
-                "data": rows
+                "message": "success",
+                "data": rows 
             }) 
         }
     })
 });
 
 router.get('/:shortUrl', (req, res, next) => {
-    //sql abfrage für spezifischen entry
-    res.status(200).json({
-        entry: 'placeholder für entry'
-    });
+    var sql = "Select * FROM URL WHERE shortURL = ?"
+    var params = [req.params.shortUrl]
+    db.get(sql,params, (err, row) => {
+        if(err) {
+            res.json({
+                "error":err.message,
+            }) 
+        }
+        else{        
+            res.json({
+            "message":"success",
+            "data":row
+            })
+        }
+    })   
 });
 
 router.post('/', (req, res, next) => {
-    //sql dingsi url objekt is nur als erinnerung für syntax wie man sachen aus json zieht
-    const url = {
+    var data = {
         longURL: req.body.longURL,
         shortURL: req.body.shortURL
     }
-    res.status(201).json({
-        message: 'successfully inserted into DB',
-        createdURL: url
-    });
+    if(data.longURL === "" || data.shortURL === ""){
+        res.json({
+            "error":"both URLs have to be filled in",
+        }) 
+    }
+    var sql = 'INSERT INTO URL (shortURL, longURL) VALUES (?,?)'
+    var params = [data.shortURL, data.longURL]
+    db.run(sql, params, function (err, result) {
+        if(err){
+            res.json({
+                "error":err.message,
+            }) 
+        }
+        else{
+            res.json({
+            "message":"success",
+            "data":data
+            })
+        }
+    })
 });
 
 router.delete('/:shortURL', (req, res, next) => {
-    //sql dingsi
-    res.status(200).json({
-        message: 'Deleted URL!'
-    });
-});
-
-router.patch('/:shortURL', (req, res, next) => {
-    //sql dingsi
-    res.status(200).json({
-        message: 'Updated URL successfully!'
-    });
+   db.run(
+       'DELETE FROM URL WHERE shortURL = ?', 
+       req.params.shortURL,
+       function(err,result) {
+        if(err){
+            res.json({
+                "error":err.message
+            }) 
+        }
+        else{
+            res.json({
+                "message":"success", 
+                changes: this.changes
+            })
+        }
+       }
+   )
 });
 
 module.exports = router;

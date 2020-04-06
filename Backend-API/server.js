@@ -21,8 +21,7 @@ server.on('close', function() {
           return console.error(err.message);
         }
         console.log('Closed the database connection.');
-    });
-    
+    });    
 });
 
 server.listen(port);
