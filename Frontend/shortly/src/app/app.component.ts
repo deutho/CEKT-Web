@@ -17,7 +17,8 @@ export class AppComponent {
   Allurl: Array<any> = [];
   URLByID: URL = new URL();
   URLPost: URL = new URL();
-  Message: String = "";
+  Changes: number = 0;
+  Message: string = "";
 
   ngOnInit() {}
 
@@ -27,6 +28,7 @@ export class AppComponent {
       (
         values => {
           this.Allurl = values.data;
+          this.Message = values.message;
         }
 
       );
@@ -38,6 +40,7 @@ export class AppComponent {
       (
         values => {
           this.URLByID = values.data;
+          this.Message = values.message;
         }
       );
   }
@@ -56,6 +59,7 @@ export class AppComponent {
       values =>
       {
         this.URLPost = values.data;
+        this.Message = values.message;
       }
     );
 
@@ -65,7 +69,21 @@ export class AppComponent {
 
     var shortURL = (<HTMLInputElement>document.getElementById("ShortURLDelete")).value;
 
-    this._ApiService.deleteURLHTTP(shortURL).subscribe();
+    this._ApiService.deleteURLHTTP(shortURL)
+    .subscribe(
+      values =>{
+
+        
+      }
+    );
+   
+  }
+
+  public redirect() {
+    
+
+
+
   }
 
 }

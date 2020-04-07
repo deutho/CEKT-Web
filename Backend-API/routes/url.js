@@ -7,7 +7,7 @@ let db = new sqlite3.Database('./test.db', (err) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log('Connected to the in-memory SQlite database.');
+    console.log('Connected to the Shortly SQlite database.');
   });
 
 
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
         
         if (err) {
             res.json({
-                "error":err.message,
+                "message":err.message,
             }) 
         }
         else {
@@ -37,7 +37,7 @@ router.get('/:shortUrl', (req, res, next) => {
     db.get(sql,params, (err, row) => {
         if(err) {
             res.json({
-                "error":err.message,
+                "message":err.message,
             }) 
         }
         else{        
@@ -64,7 +64,7 @@ router.post('/', (req, res, next) => {
     db.run(sql, params, function (err, result) {
         if(err){
             res.json({
-                "error":err.message,
+                "message":err.message,
             }) 
         }
         else{
@@ -83,7 +83,7 @@ router.delete('/:shortURL', (req, res, next) => {
        function(err,result) {
         if(err){
             res.json({
-                "error":err.message
+                "message":err.message
             }) 
         }
         else{
