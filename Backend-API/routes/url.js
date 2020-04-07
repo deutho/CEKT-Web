@@ -41,9 +41,10 @@ router.get('/:shortUrl', (req, res, next) => {
             }) 
         }
         else{        
+            
             res.json({
             "message":"success",
-            "data":row
+            "data":row,
             })
         }
     })   

@@ -6,8 +6,6 @@ const morgan = require('morgan'); //log requests in terminal
 const bodyParser = require('body-parser'); //reading body of jason
 
 //middleware - routings
-const productRoutes = require('./routes/products');
-const orderRoutes = require('./routes/orders');
 const urlRoutes = require('./routes/url');
 
 //middleware - logger and reading json
@@ -30,8 +28,6 @@ app.use((req, res, next) => {
 });
 
 //Routings
-app.use('/products', productRoutes);
-app.use('/orders', orderRoutes);
 app.use('/url', urlRoutes);
 
 //error handling - Routes
