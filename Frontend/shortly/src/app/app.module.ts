@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 
 import {HttpClientModule } from '@angular/common/http'; 
 import {ApiService } from './services/api.service';
+import { RedirectComponent } from './redirect/redirect.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,

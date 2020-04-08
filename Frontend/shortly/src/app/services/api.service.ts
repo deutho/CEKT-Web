@@ -18,9 +18,9 @@ export class ApiService
     }
 
 
-    getByShortURLHTTP(): Observable<any> {
-        var param = (<HTMLInputElement>document.getElementById("sURL")).value;
-        return this.httpclient.get(apiurl+param);
+    getByShortURLHTTP(shortURL:string): Observable<any> {
+        //var param = (<HTMLInputElement>document.getElementById("sURL")).value;
+        return this.httpclient.get(apiurl+shortURL);
     }
 
 
