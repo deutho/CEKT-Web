@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { ApiService } from '../services/api.service';
 
-import { URL } from './classes/url';
+import { URL } from '../classes/url';
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Router } from '@angular/router';
 const shortID = require('shortid');
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-mainpage',
+  templateUrl: './mainpage.component.html',
+  styleUrls: ['./mainpage.component.css']
 })
-export class AppComponent {
+export class MainpageComponent implements OnInit {
+  
   title = 'shortly';
 
   constructor(private _ApiService: ApiService, private router: Router) {
