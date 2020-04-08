@@ -4,8 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 // open database in memory
 let db = new sqlite3.Database('./test.db', (err) => {
-    if (err) {
-    
+    if (err) {    
       return console.log(err.message);
     }
     console.log('Connected to the Shortly SQlite database.');
