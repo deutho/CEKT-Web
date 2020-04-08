@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { URL } from '../classes/url';
 
 @Component({
   selector: 'app-redirect',
@@ -11,24 +12,29 @@ export class RedirectComponent implements OnInit {
 
   constructor(private _ApiService: ApiService, private router: Router) {
   }
+  
 
-  longURL: string = "";
-  shortURL: string = "yt";
+  
 
 
   ngOnInit(): void {
-    console.log('redirecting....')
-    this.getByID();
+    this.redirectByID();
   }
 
-  public getByID() {
-    this._ApiService.getByShortURLHTTP(this.shortURL)
+  public redirectByID() {
+    var shortURL = "yt";
+    var longURL = "";
+    var GetURL = new URL();
+    this._ApiService.getByShortURLHTTP(shortURL)
       .subscribe
       (
         values => {
-          this.longURL = values.data.longURL;
+          if (values.data !== undefined) {
+         GetURL = values.data;
+        longURL = GetURL.longURL;}
+        else longURL = "http://www.google.com";
         }
       );
-        var path = $location.url(this.longURL);
+      window.location.href = longURL;
   }
 }
