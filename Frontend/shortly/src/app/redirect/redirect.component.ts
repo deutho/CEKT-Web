@@ -14,6 +14,10 @@ export class RedirectComponent implements OnInit {
   constructor(private _ApiService: ApiService, private router: Router) {
   }
   
+<<<<<<< HEAD
+  ngOnInit(): void {
+    this.redirectByID();
+=======
 longURL: string = ""; //url temp save for redireting url
   
 
@@ -30,6 +34,7 @@ longURL: string = ""; //url temp save for redireting url
 
     //redirect
     sleep(2000).then(() => { this.redirect(this.longURL); });    
+>>>>>>> 3dc3a34871c202c91015895dce42c34fdaaa07b6
   }
 
   //get longURL 
