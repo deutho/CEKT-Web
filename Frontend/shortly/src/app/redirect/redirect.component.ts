@@ -44,7 +44,7 @@ longURL: string;
       
       return this.longURL;  
   }
-//stefan hinterhöl
+
   //redirect to url
   public redirect() {
     window.location.href = "https://" + this.longURL;
