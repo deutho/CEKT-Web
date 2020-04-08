@@ -19,7 +19,11 @@ router.get('/', (req, res, next) => {
         
         if (err) {
             res.json({
+<<<<<<< HEAD
                 "message":err.message,
+=======
+                "error":err.message
+>>>>>>> 54ca17a2aa483e77459ceafd8229111d56cf14c1
             }) 
         }
         else {
@@ -35,17 +39,25 @@ router.get('/:shortUrl', (req, res, next) => {
     var sql = "Select * FROM URL WHERE shortURL = ?"
     var params = [req.params.shortUrl]
     db.get(sql,params, (err, row) => {
+        console.log(sql);
+        console.log(params);
         if(err) {
             res.json({
                 "message":err.message,
             }) 
         }
         else{        
-            
-            res.json({
-            "message":"success",
-            "data":row,
-            })
+            if(row==null){
+                res.json({
+                    "message":"error: Entry not found!",
+                    })
+            }
+            else{
+                res.json({
+                "message":"success",
+                "data": row,
+                })
+            }
         }
     })   
 });
@@ -96,5 +108,26 @@ router.delete('/:shortURL', (req, res, next) => {
        }
    )
 });
+/*
 
+router.delete('/shortly.at/:shortURL', (req, res, next) => {
+   db.run(
+       'DELETE FROM URL WHERE shortURL = ?', 
+       'shortly.at/'+req.params.shortURL,
+       function(err,result) {
+        if(err){
+            res.json({
+                "error":err.message
+            }) 
+        }
+        else{
+            res.json({
+                "message":"success", 
+                changes: this.changes
+            })
+        }
+       }
+   )
+});
+*/
 module.exports = router;

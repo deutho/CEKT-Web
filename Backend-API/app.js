@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 //Routings
-app.use('/url', urlRoutes);
+app.use('/url/shortly.at', urlRoutes);
 
 //error handling - Routes
 app.use((req, res, next) => {
