@@ -51,9 +51,9 @@ longURL: string = ""; //url temp save for redireting url
         }        
       );
       
-      return this.longURL;
+      return this.longURL;  
   }
-
+//stefan
   //redirect to url
   public redirect(url: string) {
     window.location.href = "https://" + url;
