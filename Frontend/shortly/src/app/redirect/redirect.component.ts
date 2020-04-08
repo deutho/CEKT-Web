@@ -13,10 +13,6 @@ export class RedirectComponent implements OnInit {
   constructor(private _ApiService: ApiService, private router: Router) {
   }
   
-
-  
-
-
   ngOnInit(): void {
     this.redirectByID();
   }
