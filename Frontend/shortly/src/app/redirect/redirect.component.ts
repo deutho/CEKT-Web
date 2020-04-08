@@ -35,7 +35,7 @@ export class RedirectComponent implements OnInit {
       
       return this.longURL;  
   }
-//stefan
+//stefan hinterhöl
   //redirect to url
   public redirect(url: string) {
     window.location.href = "https://" + url;
