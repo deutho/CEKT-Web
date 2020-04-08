@@ -55,7 +55,8 @@ export class AppComponent {
   }
 
   public getByID() {
-    this._ApiService.getByShortURLHTTP()
+    var shortURL = (<HTMLInputElement>document.getElementById("sURL")).value;
+    this._ApiService.getByShortURLHTTP(shortURL)
       .subscribe
       (
         values => {

@@ -4,8 +4,8 @@ const sqlite3 = require('sqlite3').verbose();
 
 // open database in memory
 let db = new sqlite3.Database('./test.db', (err) => {
-    if (err) {
-      return console.error(err.message);
+    if (err) {    
+      return console.log(err.message);
     }
     console.log('Connected to the Shortly SQlite database.');
   });
@@ -19,11 +19,8 @@ router.get('/', (req, res, next) => {
         
         if (err) {
             res.json({
-<<<<<<< HEAD
                 "message":err.message,
-=======
                 "error":err.message
->>>>>>> 54ca17a2aa483e77459ceafd8229111d56cf14c1
             }) 
         }
         else {
@@ -108,26 +105,5 @@ router.delete('/:shortURL', (req, res, next) => {
        }
    )
 });
-/*
 
-router.delete('/shortly.at/:shortURL', (req, res, next) => {
-   db.run(
-       'DELETE FROM URL WHERE shortURL = ?', 
-       'shortly.at/'+req.params.shortURL,
-       function(err,result) {
-        if(err){
-            res.json({
-                "error":err.message
-            }) 
-        }
-        else{
-            res.json({
-                "message":"success", 
-                changes: this.changes
-            })
-        }
-       }
-   )
-});
-*/
 module.exports = router;
