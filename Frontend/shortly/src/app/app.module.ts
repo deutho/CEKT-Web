@@ -9,13 +9,15 @@ import {ApiService } from './services/api.service';
 
 import { Routes } from '@angular/router';
 import { RedirectComponent } from './redirect/redirect.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RedirectComponent
+    RedirectComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,

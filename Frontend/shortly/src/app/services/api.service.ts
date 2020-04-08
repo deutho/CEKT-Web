@@ -18,9 +18,9 @@ export class ApiService
     }
 
 
-    getByShortURLHTTP(shortURL:string): Observable<any> {
+    async getByShortURLHTTP(shortURL:string): Promise<Observable<any>> {
         //var param = (<HTMLInputElement>document.getElementById("sURL")).value;
-        return this.httpclient.get(apiurl+shortURL);
+        return await this.httpclient.get(apiurl+shortURL);
     }
 
 
