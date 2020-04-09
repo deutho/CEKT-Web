@@ -16,9 +16,18 @@ export class RedirectComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    //call API method to get long URL
     this.redirectByID();
-  }
 
+    //sleep funtion to wait for API response
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    //wait 2 sec for response then redirect user ro wanted page
+    sleep(2000).then(() => { this.redirect(); });
+  }
+longURL: string;
   //get longURL 
   public async redirectByID() {
     //read shortURL
@@ -33,11 +42,11 @@ export class RedirectComponent implements OnInit {
         }        
       );
       
-      return this.longURL;
+      return this.longURL;  
   }
  
   //redirect to url
-  public redirect(url: string) {
-    window.location.href = "https://" + url;
+  public redirect() {
+    window.location.href = "https://" + this.longURL;
   }
 }
