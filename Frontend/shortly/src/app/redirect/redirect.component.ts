@@ -14,7 +14,10 @@ export class RedirectComponent implements OnInit {
 
   constructor(private _ApiService: ApiService, private router: Router) {
   }
-  
+  longURL: string;
+  home: boolean = true;
+
+
   ngOnInit(): void {
     //call API method to get long URL
     this.redirectByID();
@@ -23,11 +26,10 @@ export class RedirectComponent implements OnInit {
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
-
-    //wait 2 sec for response then redirect user ro wanted page
-    sleep(2000).then(() => { this.redirect(); });
+     //wait 2 sec for response then redirect user ro wanted page
+    sleep(5000).then(() => { this.redirect(); });
   }
-longURL: string;
+
   //get longURL 
   public async redirectByID() {
     //read shortURL
@@ -39,14 +41,21 @@ longURL: string;
         //write received data in temp save
         values => {
           this.longURL = values.data.longURL;
+          this.home = false;
         }        
       );
-      
       return this.longURL;  
   }
  
   //redirect to url
   public redirect() {
-    window.location.href = "https://" + this.longURL;
+    if(this.home) {
+      this.home = false;
+      //redirect Home if ShortID is not in Database 
+      window.alert('verlinkung exisitert nicht!');
+      window.location.href = "http://www.shortly.at";
+    }
+    else window.location.href = "http://" + this.longURL;
   }
+
 }

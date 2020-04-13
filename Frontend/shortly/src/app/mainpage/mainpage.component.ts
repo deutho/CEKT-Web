@@ -32,8 +32,7 @@ export class MainpageComponent implements OnInit {
   href: string = "";
 
   ngOnInit() {
-    this.href = this.router.url;
-    console.log(this.href);
+    
   }
 
   public getAll() {

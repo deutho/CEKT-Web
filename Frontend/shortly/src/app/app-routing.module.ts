@@ -9,6 +9,9 @@ const routes: Routes = [
   { path: '',
     component: MainpageComponent
   },
+  { path: 'shortly',
+  component: MainpageComponent
+  },
   { path: ':id',
   component: RedirectComponent
   }
