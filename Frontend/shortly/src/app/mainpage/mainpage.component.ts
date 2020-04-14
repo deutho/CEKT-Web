@@ -21,6 +21,7 @@ export class MainpageComponent implements OnInit {
   
 
   Allurl: Array<any> = [];
+
   URLByID: URL = new URL();
   URLPost: URL = new URL();
   URLblank: URL = new URL();
@@ -30,6 +31,7 @@ export class MainpageComponent implements OnInit {
   PostMessage: string = "";
   DeleteMessage: string = "";
   href: string = "";
+  redirectID: string = "";
 
   ngOnInit() {
     
@@ -43,9 +45,6 @@ export class MainpageComponent implements OnInit {
           if(values.data !== undefined){
             this.Allurl = values.data;
             this.GetAllMessage = values.message;
-            this.Allurl.forEach(element => {
-              element.shortURL = "shortly.at/" + element.shortURL;
-            });
             }
             else{
               this.GetAllMessage = "Es sind keine Links in der Datenbank enthalten!";
@@ -62,7 +61,8 @@ export class MainpageComponent implements OnInit {
         values => {
           if(values.data !== undefined){
           this.URLByID = values.data;
-          this.URLByID.shortURL = "shortly.at/"+ this.URLByID.shortURL;
+          this.redirectID =  this.URLByID.shortURL;
+          this.URLByID.shortURL = "shortly.at/"+ this.URLByID.shortURL;          
           this.GetMessage = values.message;
           }
           else{
