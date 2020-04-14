@@ -14,6 +14,9 @@ const routes: Routes = [
   },
   { path: ':id',
   component: RedirectComponent
+  },
+  { path: '**',
+  component: RedirectComponent
   }
 ];
 

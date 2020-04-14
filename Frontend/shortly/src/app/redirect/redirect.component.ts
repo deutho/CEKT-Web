@@ -34,6 +34,11 @@ export class RedirectComponent implements OnInit {
   public async redirectByID() {
     //read shortURL
     var shortURL = location.pathname.substring(1);
+    var urlParams = "";
+    if(shortURL.indexOf('/') !== -1) {
+      urlParams = shortURL.substring(shortURL.indexOf('/'));
+      shortURL = shortURL.substring(0, shortURL.indexOf('/'));
+    }
     //call API
     (await this._ApiService.getByShortURLHTTP(shortURL))
       .subscribe
@@ -44,7 +49,7 @@ export class RedirectComponent implements OnInit {
           this.home = false;
         }        
       );
-      return this.longURL;  
+      return this.longURL + urlParams;  
   }
  
   //redirect to url
