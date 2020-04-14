@@ -21,6 +21,7 @@ export class MainpageComponent implements OnInit {
   
 
   Allurl: Array<any> = [];
+
   URLByID: URL = new URL();
   URLPost: URL = new URL();
   URLblank: URL = new URL();
@@ -43,9 +44,6 @@ export class MainpageComponent implements OnInit {
           if(values.data !== undefined){
             this.Allurl = values.data;
             this.GetAllMessage = values.message;
-            this.Allurl.forEach(element => {
-              element.shortURL = "shortly.at/" + element.shortURL;
-            });
             }
             else{
               this.GetAllMessage = "Es sind keine Links in der Datenbank enthalten!";
