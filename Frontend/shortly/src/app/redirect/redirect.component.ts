@@ -45,11 +45,11 @@ export class RedirectComponent implements OnInit {
       (
         //write received data in temp save
         values => {
-          this.longURL = values.data.longURL;
+          this.longURL = values.data.longURL + urlParams;
           this.home = false;
         }        
       );
-      return this.longURL + urlParams;  
+      return this.longURL;  
   }
  
   //redirect to url
