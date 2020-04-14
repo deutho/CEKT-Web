@@ -31,6 +31,7 @@ export class MainpageComponent implements OnInit {
   PostMessage: string = "";
   DeleteMessage: string = "";
   href: string = "";
+  redirectID: string = "";
 
   ngOnInit() {
     
@@ -60,7 +61,8 @@ export class MainpageComponent implements OnInit {
         values => {
           if(values.data !== undefined){
           this.URLByID = values.data;
-          this.URLByID.shortURL = "shortly.at/"+ this.URLByID.shortURL;
+          this.redirectID =  this.URLByID.shortURL;
+          this.URLByID.shortURL = "shortly.at/"+ this.URLByID.shortURL;          
           this.GetMessage = values.message;
           }
           else{
