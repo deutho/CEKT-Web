@@ -62,7 +62,6 @@ export class AppComponent {
         values => {
           if(values.data !== undefined){
           this.URLByID = values.data;
-          this.URLByID.shortURL = "shortly.at/"+ this.URLByID.shortURL;
           this.GetMessage = values.message;
           }
           else{

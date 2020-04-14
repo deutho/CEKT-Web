@@ -9,7 +9,7 @@
     <label>Return Value: </label>
   <tr *ngFor="let u of Allurl">
     <td><a href={{u.shortURL}}>shortly.at/{{u.shortURL}}</a></td>
-    <td>{{u.longURL}}</td>
+    <td><a href="{{u.longURL}}"></a>{{u.longURL}}</td>
   </tr>
 
   <tr>
@@ -20,8 +20,8 @@
     <label>Message:&emsp; {{GetMessage}}</label><br>
     <label>Return Value: </label>
   <tr>
-    <td>{{URLByID.shortURL}}</td>
-    <td>{{URLByID.longURL}}</td>
+    <td><a href="{{URLByID.shortURL}}">shortly.at/{{URLByID.shortURL}}</a></td>
+    <td><a href="{{URLByID.longURL}}">{{URLByID.longURL}}</a></td>
   </tr>
 
 </table>
