@@ -1,56 +1,86 @@
-<router-outlet></router-outlet>
-<h2>Get Requests</h2>
-
-<table>
-  <tr>
-    <button (click)="getAll()">Alle URL Paare anzeigen</button><br>
-    <label>Message:&emsp; {{GetAllMessage}}</label><br>
-    <label>Return Value: </label>
-  <tr *ngFor="let u of Allurl">
-    <td><a href={{u.shortURL}}>shortly.at/{{u.shortURL}}</a></td>
-    <td><a href={{u.shortURL}}>{{u.longURL}}</a></td>
-  </tr>
-
-  <tr>
-    
-    <br><label for="sURL">ShortURL eingeben:&emsp;</label>
-    <label>shortly.at/</label><input type="text" id="sURL" name=shortURL><br>
-    <button (click)="getByID()">URL Paar durch ShortURL suchen</button><br>
-    <label>Message:&emsp; {{GetMessage}}</label><br>
-    <label>Return Value: </label>
-  <tr>
-    <td><a href={{redirectID}}>{{URLByID.shortURL}}</a></td>
-    <td><a href={{redirectID}}>{{URLByID.longURL}}</a></td>
-  </tr>
-
-</table>
-
-
-<h2>Post Request</h2>
-
-<table>
-  <tr>
-    <label for="PostShortURL">ShortURL eingeben:&emsp;</label>
-    <label>shortly.at/</label><input type="text" id="PostShortURL" name=shortURL><br>
-    <label for="PostLongURL">LongURL eingeben: </label>
-    <input type="text" id="PostLongURL" name=shortURL><br>
-    <button (click)="PostURL()">URL Paar zur Datenbank hinzufügen</button><br>
-    <label>Message:&emsp; {{PostMessage}}</label><br>
-    <label>Return Value: </label>
-  <tr>
-    <td >{{URLPost.shortURL}}</td>
-    <td>{{URLPost.longURL}}</td>
-  </tr>
-</table>
-
-
-<h2>Delete Request</h2>
-
-<table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
   
-  <br><label for = "ShortURLDelete">ShortURL eingeben:&emsp;</label>
-  <label>shortly.at/</label><input type="text" id="ShortURLDelete" name=shortURL><br>
-  <button (click)="DeleteURL()">ShortURL aus der Datenbank löschen</button><br>
-  <label>Message:&emsp; {{DeleteMessage}}</label><br>
-  <label>Changes made:&emsp;{{Changes}}</label>
-</table>
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body class="eightyPercent">
+<div class="shadow">
+  <div>
+    <h2>Get Requests</h2>
+    <table >
+      <tr>
+        <button class="waves-effect btn" (click)="getAll()">Alle URL Paare anzeigen</button><br>
+        <label>Message:&emsp; {{GetAllMessage}}</label><br>
+        <label>Return Value: </label>
+      <tr *ngFor="let u of Allurl">
+        <td><a href={{u.shortURL}}>shortly.at/{{u.shortURL}}</a></td>
+        <td><a href={{u.shortURL}}>{{u.longURL}}</a></td>
+      </tr>
+    
+      <tr>
+        
+        <br><label for="sURL">ShortURL eingeben:&emsp;</label>
+        
+        <!-- <input type="text" id="sURL" name=shortURL><br> 
+        <div class="input-field col">
+          <input disabled id="disabled" type="text" class="validate s2"></div>
+          <label for="disabled">Disabled</label> -->
+
+          <div class="input-field col">          
+            <i class="material-icons prefix">insert_link</i>          
+            <input id="sURL" type="text" class="validate s2">
+            <label for="sURL">shortly.at/...</label>
+          </div>
+       
+        <button class="waves-effect btn" (click)="getByID()">URL Paar durch ShortURL suchen</button><br>
+        <label>Message:&emsp; {{GetMessage}}</label><br>
+        <label>Return Value: </label>
+      <tr>
+        <td><a href={{redirectID}}>{{URLByID.shortURL}}</a></td>
+        <td><a href={{redirectID}}>{{URLByID.longURL}}</a></td>
+      </tr>
+    
+    </table>
+  </div>
+  <div>
+    <h2>Post Request</h2>
+    
+    <table>
+      <tr>
+        <label for="PostShortURL">ShortURL eingeben:&emsp;</label>
+        <label>shortly.at/</label><input type="text" id="PostShortURL" name=shortURL><br>
+        <label for="PostLongURL">LongURL eingeben: </label>
+        <input type="text" id="PostLongURL" name=shortURL><br>
+        <button class="waves-effect btn" (click)="PostURL()">URL Paar zur Datenbank hinzufügen</button><br>
+        <label>Message:&emsp; {{PostMessage}}</label><br>
+        <label>Return Value: </label>
+      <tr>
+        <td >{{URLPost.shortURL}}</td>
+        <td>{{URLPost.longURL}}</td>
+      </tr>
+    </table>
+    
+  </div>
+  <div>
+    <h2>Delete Request</h2>
+    
+    <table>
+      
+      <br><label for = "ShortURLDelete">ShortURL eingeben:&emsp;</label>
+      <label>shortly.at/</label><input type="text" id="ShortURLDelete" name=shortURL><br>
+      <button class="waves-effect btn" (click)="DeleteURL()">ShortURL aus der Datenbank löschen</button><br>
+      <label>Message:&emsp; {{DeleteMessage}}</label><br>
+      <label>Changes made:&emsp;{{Changes}}</label>
+    </table>
+
+  </div>
+
+</div> 
+</body>
+</html>
+
