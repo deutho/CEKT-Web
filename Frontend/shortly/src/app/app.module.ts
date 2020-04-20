@@ -10,6 +10,8 @@ import {ApiService } from './services/api.service';
 import { Routes } from '@angular/router';
 import { RedirectComponent } from './redirect/redirect.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { UserpageComponent } from './userpage/userpage.component';
+
 
 
 
@@ -17,7 +19,8 @@ import { MainpageComponent } from './mainpage/mainpage.component';
   declarations: [
     AppComponent,
     RedirectComponent,
-    MainpageComponent
+    MainpageComponent,
+    UserpageComponent
   ],
   imports: [
     BrowserModule,
