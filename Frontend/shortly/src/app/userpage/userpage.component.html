@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body class="eightyPercent">
+<div class="shadow">
+  
+  <div>
+    <h5>Verkürzen Sie Ihren Link mit shortly.at!</h5>
+    
+    <table>
+      <tr>
+        <label for="PostShortURL">ShortURL eingeben:&emsp;</label>
+        <label>shortly.at/</label><input type="text" id="PostShortURL" name=shortURL><br>
+        <label for="PostLongURL">LongURL eingeben: </label>
+        <input type="text" id="PostLongURL" name=shortURL><br>
+        <button class="waves-effect btn" (click)="PostURLUser()">URL Paar zur Datenbank hinzufügen</button><br>
+        <label>Message:&emsp; {{PostMessageUser}}</label><br>
+        <label>Return Value: </label>
+      <tr>
+        <td >{{URLPostUser.shortURL}}</td>
+        <td>{{URLPostUser.longURL}}</td>
+      </tr>
+    </table>
+  </div>
+</div> 
+</body>
+</html>
+
+
