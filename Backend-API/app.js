@@ -3,7 +3,7 @@
 //imports
 const app = require('express')();
 const morgan = require('morgan'); //log requests in terminal
-const bodyParser = require('body-parser'); //reading body of jason
+const bodyParser = require('body-parser'); //reading body of json
 
 //middleware - routings
 const urlRoutes = require('./routes/url');
