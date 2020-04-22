@@ -3,33 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  
- 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 </head>
 <body class="eightyPercent">
 <div class="shadow">
   
-  <div>
-    <h5>Verkürzen Sie Ihren Link mit shortly.at!</h5>
-    
+  <div class="eightyPercent">
+    <h3>Professionally shorten your Link!</h3>
+    <br>
+    <br>
     <table>
-      <tr>
-        <label for="PostShortURL">ShortURL eingeben:&emsp;</label>
-        <label>shortly.at/</label><input type="text" id="PostShortURL" name=shortURL><br>
-        <label for="PostLongURL">LongURL eingeben: </label>
-        <input type="text" id="PostLongURL" name=shortURL><br>
-        <button class="waves-effect btn" (click)="PostURLUser()">URL Paar zur Datenbank hinzufügen</button><br>
-        <label>Message:&emsp; {{PostMessageUser}}</label><br>
-        <label>Return Value: </label>
-      <tr>
-        <td >{{URLPostUser.shortURL}}</td>
-        <td>{{URLPostUser.longURL}}</td>
+      <tr>                
+        <!-- <h5>LongURL eingeben:&emsp; </h5>          -->   
+        <div class="row input-field">
+            <i class="material-icons prefix">insert_link</i> 
+            <input id="PostLongURL" type="text" class="validate col">
+            <label for="PostLongURL">Shorten your link</label>
+            <button class="waves-effect btn col-lg-2" (click)="PostURLUser()">Shorten</button><br>
+        </div>      
+
+        <div >
+            <a data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
+                individualize your link!
+            </a>        
+            <div class="collapse" id="collapseExample">
+            
+                <div class="input-field row">                 
+                    <i class="material-icons prefix">insert_link</i>          
+                    <input id="PostShortURL" type="text" class="validate s2">
+                    <label for="PostShortURL">shortly.at/...</label>
+                </div>  
+            
+            </div>
+
+        </div>
+
+        
+        <br>
+
+      <tr class="row">
+        <td class="col"><a href="http://{{URLPostUser.shortURL}}">{{URLPostUser.shortURL}}</a></td>
+        <td class="col"><a href="http://{{URLPostUser.shortURL}}">{{URLPostUser.longURL}}</a></td>
       </tr>
     </table>
   </div>
 </div> 
+
+
+
+
 </body>
 </html>
 

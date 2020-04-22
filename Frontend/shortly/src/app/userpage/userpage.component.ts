@@ -37,13 +37,25 @@ export class UserpageComponent implements OnInit {
     }else{
       toPost.shortURL = (<HTMLInputElement>document.getElementById("PostShortURL")).value;
       if (toPost.shortURL == "admin"){
-        window.alert("Ungültiger Short Link, wählen Sie einen anderen!");
+        window.alert("Ungültige Individualisierung, wählen Sie eine andere!");
         return;
-    }
+      }
+
+      if (toPost.shortURL.includes(".")){
+        window.alert("Kein '.' in der Individualisierung erlaubt, wählen Sie eine andere Individualisierung!");
+        return;
+      }
+
     toPost.longURL = (<HTMLInputElement>document.getElementById("PostLongURL")).value;
       if (toPost.longURL == "") {
-        window.alert("Der Lange Link kann nicht leer sein!")
+        window.alert("Der zu verkürzende Link darf nicht leer sein!")
         return;
+      }
+      if (toPost.longURL.search('https://') != -1) {
+        toPost.longURL = toPost.longURL.substr(8); 
+      }
+      if (toPost.longURL.search('http://') != -1) {
+        toPost.longURL = toPost.longURL.substr(7); 
       }
 
     this._ApiService.postURLHTTP(toPost)
