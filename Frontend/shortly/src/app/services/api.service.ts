@@ -5,7 +5,7 @@ import {URL } from '../classes/url';
 import { ThrowStmt } from '@angular/compiler';
 
 //var apiurl = 'http://192.168.1.10:3000/url/shortly.at/';
-var apiurl = 'http://shortly.ddns.net:3000/url/shortly.at/';
+var apiurl = 'http://shortly.at:3000/url/shortly.at/';
 
 
 @Injectable()

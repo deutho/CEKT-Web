@@ -27,7 +27,8 @@ export class RedirectComponent implements OnInit {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
      //wait 2 sec for response then redirect user ro wanted page
-    sleep(5000).then(() => { this.redirect(); });
+    sleep(4000).then(() => { this.redirect(); });
+    
   }
 
   //get longURL 
