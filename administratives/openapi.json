@@ -1,0 +1,100 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Shortly API",
+    "description": "This is the swagger documentation of the backend API of shortly.",
+    "version": "0.1.9"
+  },
+  "servers": [
+    {
+      "url": "shortly.at",
+      "description": "Homepage of the webservice"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Returns all shortened URLS.",
+        "description": "SELECT * FROM URL.",
+        "responses": {
+          "200": {
+            "description": "A JSON array of URLS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Posts an URL into the database.",
+        "description": "INSERT INTO URL (shortURL, longURL) VALUES (?,?)",
+        "responses": {
+          "200": {
+            "description": "A JSON array of Strings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "longURL": {
+                      "type": "string"
+                    },
+                    "shortURL": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/:id": {
+      "get": {
+        "summary": "Returns specific shortURL.",
+        "description": "Select * FROM URL WHERE shortURL = ?",
+        "responses": {
+          "200": {
+            "description": "Return value is an URL String",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes an URL in the Database.",
+        "description": "DELETE FROM URL WHERE shortURL = ?",
+        "responses": {
+          "200": {
+            "description": "A JSON array of Strings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
